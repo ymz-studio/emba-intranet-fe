@@ -25,7 +25,7 @@ export default Vue.extend({});
 nav {
   @apply my-10 text-center uppercase text-gray-500;
   .router-link-exact-active {
-    @apply text-orange-500;
+    @apply text-primary;
   }
 }
 </style>
