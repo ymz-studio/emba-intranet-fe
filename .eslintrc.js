@@ -5,9 +5,9 @@ module.exports = {
   },
   extends: [
     "plugin:vue/essential",
+    "plugin:vue/recommended",
     "@vue/prettier",
-    "@vue/typescript",
-    "plugin:vue/recommended"
+    "@vue/typescript"
   ],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",

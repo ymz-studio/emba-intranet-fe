@@ -26,8 +26,7 @@
       No Data
     </h1>
 
-    <h1 v-else
-class="text-center text-gray-500 p-4">
+    <h1 v-else class="text-center text-gray-500 p-4">
       Loading...
     </h1>
   </div>
