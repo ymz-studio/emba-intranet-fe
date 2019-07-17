@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./plugins/element-ui.ts";
+import "./plugins/vue-meta";
 
 Vue.config.productionTip = false;
 

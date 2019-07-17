@@ -1,6 +1,7 @@
 <template>
   <div>
-    Hi
+    后台版布局
+    <router-view></router-view>
   </div>
 </template>
 
@@ -8,11 +9,8 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  layout: "student",
   metaInfo: {
-    title: "Home"
+    titleTemplate: "%s | EMBA Intranet Admin"
   }
 });
 </script>
-
-<style scoped></style>

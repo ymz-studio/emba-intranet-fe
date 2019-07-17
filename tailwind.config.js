@@ -8,7 +8,7 @@ module.exports = {
         success: colors.green[500],
         warning: colors.orange[500],
         danger: colors.red[500],
-        background: "#F4F5F5"
+        background: colors.gray[100]
       }
     }
   },
