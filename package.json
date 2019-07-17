@@ -55,14 +55,9 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "linters": {
-      "*.{js,vue}": [
-        "vue-cli-service lint",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "**/dist/**/*"
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
     ]
   }
 }
