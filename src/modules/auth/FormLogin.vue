@@ -39,7 +39,7 @@ export default Vue.extend({
     };
   },
   computed: {
-    next() {
+    next(): string | undefined {
       const next = this.$route.query.next;
       if (typeof next === "string") {
         return next;
