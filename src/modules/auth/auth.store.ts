@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import AppStore from "@/store";
-import { LoginPayload } from "@/modules/auth/auth.interfaces";
+import { LoginPayload, CurUserInfo } from "@/modules/auth/auth.interfaces";
 import { AuthService } from "@/modules/auth/auth.service";
 
 export const AuthMutations = {
@@ -9,14 +9,13 @@ export const AuthMutations = {
 
 export const AuthActions = {
   LOGIN: "LOGIN",
-  LOGOUT: "LOGOUT"
+  LOGOUT: "LOGOUT",
+  AUTH: "AUTH"
 };
-
-const TOKEN_STORAGE_KEY = "token"; // localStorage中存储token的字段
 
 export const AuthStore = new Vuex.Store({
   state: {
-    me: undefined
+    me: undefined as CurUserInfo | undefined
   },
   mutations: {
     [AuthMutations.SET_ME](state, payload) {
@@ -26,15 +25,18 @@ export const AuthStore = new Vuex.Store({
   actions: {
     // 登录事件
     async [AuthActions.LOGIN](ctx, payload: LoginPayload) {
-      const token = await AuthService.login(payload);
-      localStorage.setItem(TOKEN_STORAGE_KEY, token);
-      const user = await AuthService.auth();
-      ctx.commit(AuthMutations.SET_ME, user);
+      const me = await AuthService.login(payload);
+      ctx.commit(AuthMutations.SET_ME, me);
     },
     // 登出事件
     async [AuthActions.LOGOUT](ctx) {
-      localStorage.removeItem(TOKEN_STORAGE_KEY);
+      await AuthService.logout();
       ctx.commit(AuthMutations.SET_ME, undefined);
+    },
+    async [AuthActions.AUTH](ctx) {
+      const me = await AuthService.auth();
+      ctx.commit(AuthMutations.SET_ME, me);
+      return me;
     }
   }
 });

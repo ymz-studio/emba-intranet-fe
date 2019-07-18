@@ -1,4 +1,9 @@
 export interface LoginPayload {
-  username: string;
+  identity: string;
   password: string;
+  keep: boolean;
+}
+
+export interface CurUserInfo {
+  username: string;
 }
