@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="loading > 0">
+  <div v-loading="!schedule">
     <div id="calendar"></div>
   </div>
 </template>
@@ -24,6 +24,21 @@ export default Vue.extend({
       loading: 0
     };
   },
+  computed: {
+    schedule() {
+      return ModuleStore.state.schedule;
+    }
+  },
+  watch: {
+    schedule: {
+      immediate: true,
+      handler(val) {
+        if (val) {
+          this.setEvent(val);
+        }
+      }
+    }
+  },
   async mounted() {
     const calendarEl = document.getElementById("calendar");
     if (calendarEl) {
@@ -44,23 +59,6 @@ export default Vue.extend({
       });
       calendar.render();
       this.calendar = calendar;
-      // 监听日程表更新
-      ModuleStore.subscribe((mutation, state) => {
-        if (mutation.type === ModuleMutations.SET_SCHEDULE) {
-          if (state.schedule) {
-            this.setEvent(state.schedule);
-          }
-        }
-      });
-      // 加载日程表数据
-      this.loading++;
-      const schedule = ModuleStore.state.schedule;
-      if (!schedule) {
-        await ModuleStore.dispatch(ModuleActions.LOAD_SCHEDULE);
-      } else {
-        this.setEvent(schedule);
-      }
-      this.loading--;
     }
   },
   methods: {

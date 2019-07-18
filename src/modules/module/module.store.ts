@@ -28,7 +28,7 @@ export const ModuleStore = new Vuex.Store({
     },
     // 设置当前模块信息
     [ModuleMutations.SET_CUR_MODULE](state, payload) {
-      state.schedule = payload;
+      state.curModule = payload;
     }
   },
   actions: {
@@ -43,8 +43,10 @@ export const ModuleStore = new Vuex.Store({
   }
 });
 
-function init() {
+async function init() {
   AppStore.registerModule("module", ModuleStore);
+  ModuleStore.dispatch(ModuleActions.LOAD_SCHEDULE);
+  ModuleStore.dispatch(ModuleActions.LOAD_CUR_MODULE);
 }
 
 init();
