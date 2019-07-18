@@ -21,5 +21,8 @@ module.exports = {
       }
     ]);
   },
+  devServer: {
+    proxy: "https://yapi.ymzstudio.com/mock/11"
+  },
   publicPath: "./"
 };
