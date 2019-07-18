@@ -810,6 +810,21 @@
   resolved "https://registry.npm.taobao.org/@csstools/sass-import-resolve/download/@csstools/sass-import-resolve-1.0.0.tgz#32c3cdb2f7af3cd8f0dca357b592e7271f3831b5"
   integrity sha1-MsPNsvevPNjw3KNXtZLnJx84MbU=
 
+"@fullcalendar/core@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.npm.taobao.org/@fullcalendar/core/download/@fullcalendar/core-4.2.0.tgz#16716d6617137e54fceeb03c72f5124c92b86e58"
+  integrity sha1-FnFtZhcTflT87rA8cvUSTJK4blg=
+
+"@fullcalendar/daygrid@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.npm.taobao.org/@fullcalendar/daygrid/download/@fullcalendar/daygrid-4.2.0.tgz#c49a9e27baf40b5a637a5d8fffa2670f19ed636b"
+  integrity sha1-xJqeJ7r0C1pjel2P/6JnDxntY2s=
+
+"@fullcalendar/list@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.npm.taobao.org/@fullcalendar/list/download/@fullcalendar/list-4.2.0.tgz#8eac663750af2bd0d7e64c399ab550e049283890"
+  integrity sha1-jqxmN1CvK9DX5kw5mrVQ4EkoOJA=
+
 "@fullhuman/postcss-purgecss@^1.2.0":
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/@fullhuman/postcss-purgecss/download/@fullhuman/postcss-purgecss-1.2.0.tgz#a3207a0e1812f8b56fa49fba5796a1020f2756a8"
@@ -3073,6 +3088,11 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npm.taobao.org/date-now/download/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
+
+dayjs@^1.8.15:
+  version "1.8.15"
+  resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.8.15.tgz?cache=0&sync_timestamp=1562596317269&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdayjs%2Fdownload%2Fdayjs-1.8.15.tgz#7121bc04e6a7f2621ed6db566be4a8aaf8c3913e"
+  integrity sha1-cSG8BOan8mIe1ttWa+SoqvjDkT4=
 
 de-indent@^1.0.2:
   version "1.0.2"
