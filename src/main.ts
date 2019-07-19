@@ -4,8 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./plugins/element-ui.ts";
 import "./plugins/vue-meta";
-import "./assets/nprogress.css";
-import "./assets/app.css";
+
 Vue.config.productionTip = false;
 
 new Vue({

@@ -13,19 +13,12 @@ export default Vue.extend({});
 @tailwind components;
 @tailwind utilities;
 
-#app {
-  @apply text-gray-900 antialiased subpixel-antialiased font-sans;
-}
+/* purgecss start ignore */
+@import "./assets/nprogress.css";
+@import "./assets/app.css";
+@import "../node_modules/@fullcalendar/core/main.css";
+@import "../node_modules/@fullcalendar/daygrid/main.css";
+@import "../node_modules/@fullcalendar/list/main.css";
+/* purgecss end ignore */
 
-h1 {
-  @apply text-4xl;
-}
-
-h2 {
-  @apply text-2xl;
-}
-
-h3 {
-  @apply text-xl;
-}
 </style>

@@ -14,9 +14,7 @@ import listPlugin from "@fullcalendar/list";
 import { ModuleStore, ModuleMutations, ModuleActions } from "./module.store";
 import { ModuleScheduleItem } from "./module.interfaces";
 import day from "dayjs";
-import "@fullcalendar/core/main.css";
-import "@fullcalendar/daygrid/main.css";
-import "@fullcalendar/list/main.css";
+
 export default Vue.extend({
   data() {
     return {
