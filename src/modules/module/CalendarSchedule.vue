@@ -34,48 +34,42 @@ export default Vue.extend({
       immediate: true,
       handler(val) {
         if (val) {
-          this.setEvent(val);
+          this.$nextTick(() => {
+            this.init(val);
+          });
         }
       }
     }
   },
-  async mounted() {
-    const calendarEl = document.getElementById("calendar");
-    if (calendarEl) {
-      const calendar = new Calendar(calendarEl, {
-        plugins: [daygrid, listPlugin],
-        header: {
-          left: "title",
-          center: "",
-          right: "dayGridMonth,listWeek prev,next"
-        },
-        // locale: zhLocale,
-        columnHeaderFormat(column) {
-          return "日一二三四五六"[day(column.date.marker).day()];
-        },
-        eventClick: info => {
-          this.onModuleClick(info.event.id);
-        }
-      });
-      calendar.render();
-      this.calendar = calendar;
-    }
-  },
   methods: {
-    /**
-     * 设置日历事件
-     * @param schedule 日程表数据
-     */
-    setEvent(schedule: ModuleScheduleItem[]) {
-      schedule.forEach(item => {
-        this.calendar &&
-          this.calendar.addEvent({
+    // 初始化日历
+    init(schedule: ModuleScheduleItem[]) {
+      const calendarEl = document.getElementById("calendar");
+      if (calendarEl) {
+        const calendar = new Calendar(calendarEl, {
+          plugins: [daygrid, listPlugin],
+          header: {
+            left: "title",
+            center: "",
+            right: "dayGridMonth,listWeek prev,next"
+          },
+          events: schedule.map(item => ({
             id: item.slug,
             title: item.name,
             start: item.range[0],
             end: item.range[1]
-          });
-      });
+          })),
+          // locale: zhLocale,
+          columnHeaderFormat(column) {
+            return "日一二三四五六"[day(column.date.marker).day()];
+          },
+          eventClick: info => {
+            this.onModuleClick(info.event.id);
+          }
+        });
+        this.calendar = calendar;
+        this.calendar.render();
+      }
     },
     onModuleClick(slug: string) {}
   }
