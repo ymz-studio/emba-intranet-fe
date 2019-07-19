@@ -12,4 +12,10 @@ export class ModuleService {
     const { data } = await AxiosDefault.get("/api/module/schedule");
     return data;
   }
+
+  // 获取某个module的详细信息
+  static async getModuleInfo(slug: string): Promise<ModuleInfo> {
+    const { data } = await AxiosDefault.get(`/api/module/${slug}`);
+    return data;
+  }
 }

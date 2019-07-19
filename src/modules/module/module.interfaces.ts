@@ -10,6 +10,7 @@ export interface ModuleInfo {
   hotel?: Hotel;
   name?: string;
   slug?: string;
+  imgs?: string[];
 }
 
 export interface Course {
