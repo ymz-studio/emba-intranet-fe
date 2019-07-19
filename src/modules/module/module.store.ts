@@ -7,7 +7,7 @@ import { ModuleService } from "./module.service";
 import AppStore from "@/store";
 
 export const ModuleMutations = {
-  SET_CUR_MODULE: "Set currently module info [module]",
+  SET_CUR_MODULE: "Set current module info [module]",
   SET_SCHEDULE: "Set module schedule info [module]"
 };
 
