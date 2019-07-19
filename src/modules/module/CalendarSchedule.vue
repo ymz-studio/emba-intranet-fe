@@ -71,7 +71,9 @@ export default Vue.extend({
         this.calendar.render();
       }
     },
-    onModuleClick(slug: string) {}
+    onModuleClick(slug: string) {
+      this.$router.push("/module/" + slug);
+    }
   }
 });
 </script>
