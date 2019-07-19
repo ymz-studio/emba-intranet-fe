@@ -39,7 +39,7 @@ jobs:
       - run: yarn build
 
       - persist_to_workspace:
-         root: /tmp
+         root: .
          paths: dist
 
   # build job omitted for brevity
@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: /tmp
+          at: .
 
       - run:
           name: Install awscli
