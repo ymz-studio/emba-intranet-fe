@@ -10,9 +10,6 @@ export default Vue.extend({});
 </script>
 
 <style lang="postcss">
-/* purgecss start ignore */
-@tailwind base;
-/* purgecss end ignore */
 @tailwind components;
 @tailwind utilities;
 
