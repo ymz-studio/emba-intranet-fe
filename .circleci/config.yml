@@ -38,6 +38,13 @@ jobs:
 
       # run build
       - run: yarn build
+
+      # save build result
+      - save_cache:
+          paths:
+            - dist
+          key: build
+
   # build job omitted for brevity
   deploy:
     docker:
@@ -52,9 +59,15 @@ jobs:
       - run:
           name: Configuration
           command: aws configure set default.s3.signature_version s3v4
+      
+      # restore build result
+      - restore_cache:
+          keys:
+            - build
+
       - run:
           name: Deploy to Minio
-          command: ls
+          command: aws --endpoint-url https://minio.ymzstudio.com s3 sync dist s3://static-pages/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH} --delete
   
 workflows:
   version: 2
