@@ -38,5 +38,32 @@ jobs:
 
       # run build
       - run: yarn build
+  # build job omitted for brevity
+  deploy:
+    docker:
+      - image: circleci/python:3.7-stretch
+    steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Configuration
+          command: aws configure set default.s3.signature_version s3v4
+      - run:
+          name: Deploy to Minio
+          command: aws --endpoint-url https://minio.ymzstudio.com s3 sync dist s3://static-pages/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH} --delete
   
-      
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: 
+                - master
+                - release
+                - dev
