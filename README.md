@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/ymz-studio/emba-intranet-fe/tree/dev.svg?style=svg)](https://circleci.com/gh/ymz-studio/emba-intranet-fe/tree/dev)
 
+> CI TEST
+
 ## Project setup
 
 ```
