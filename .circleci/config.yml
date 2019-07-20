@@ -78,3 +78,7 @@ workflows:
                 - master
                 - release
                 - dev
+notify:
+  webhooks:
+    # A list of hook hashes, containing the url field
+    - url: https://hook.bearychat.com/=bwHen/circleci/e316b6f35c5e9364803223318c6796f7
