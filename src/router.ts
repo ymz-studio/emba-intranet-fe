@@ -4,6 +4,7 @@ import routes from "vue-auto-routing";
 import { createRouterLayout } from "vue-router-layout";
 import { AuthStore, AuthActions } from "@/modules/auth/auth.store";
 import Nprogress from "nprogress";
+import { AxiosResponse } from "axios";
 
 const RouterLayout = createRouterLayout(layout => {
   return import(`@/layouts/${layout}.vue`);
@@ -23,23 +24,31 @@ const router = new Router({
 
 router.beforeEach(async (to, from, next) => {
   Nprogress.start();
-  let me = AuthStore.state.me;
-  if (!me) {
-    me = await AuthStore.dispatch(AuthActions.AUTH);
-  }
-  if (!me && to.name !== "login") {
-    next({
-      name: "login",
-      query: {
-        next: to.fullPath
+  try {
+    const me =
+      AuthStore.state.me || (await AuthStore.dispatch(AuthActions.AUTH));
+    if (to.name === "login") {
+      next("/");
+    } else {
+      next();
+    }
+  } catch (error) {
+    const res = error.response as AxiosResponse;
+    if (res.status === 401) {
+      if (to.name !== "login") {
+        next({
+          name: "login",
+          query: {
+            next: to.fullPath
+          }
+        });
+      } else {
+        next();
       }
-    });
-  } else if (me && to.name === "login") {
-    next("/");
-  } else {
-    next();
+    }
+  } finally {
+    Nprogress.done();
   }
-  Nprogress.done();
 });
 
 export default router;
