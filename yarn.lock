@@ -917,6 +917,11 @@
     error-stack-parser "^2.0.0"
     string-width "^2.0.0"
 
+"@types/body-scroll-lock@^2.6.0":
+  version "2.6.0"
+  resolved "https://registry.npm.taobao.org/@types/body-scroll-lock/download/@types/body-scroll-lock-2.6.0.tgz#f5b3e9acffc646793633e88aa571999cda8adc5b"
+  integrity sha1-9bPprP/GRnk2M+iKpXGZnNqK3Fs=
+
 "@types/core-js@^2.5.2":
   version "2.5.2"
   resolved "https://registry.npmjs.org/@types/core-js/-/core-js-2.5.2.tgz#d4c25420044d4a5b65e00a82fc04b7824b62691f"
@@ -1959,6 +1964,11 @@ body-parser@1.19.0:
     qs "6.7.0"
     raw-body "2.4.0"
     type-is "~1.6.17"
+
+body-scroll-lock@^2.6.4:
+  version "2.6.4"
+  resolved "https://registry.npm.taobao.org/body-scroll-lock/download/body-scroll-lock-2.6.4.tgz#567abc60ef4d656a79156781771398ef40462e94"
+  integrity sha1-Vnq8YO9NZWp5FWeBdxOY70BGLpQ=
 
 bonjour@^3.5.0:
   version "3.5.0"
