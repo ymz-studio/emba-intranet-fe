@@ -31,7 +31,6 @@ import CardHotelVue from "../modules/module/CardHotel.vue";
 import CardActivityVue from "../modules/module/CardActivity.vue";
 import CalendarScheduleVue from "../modules/module/CalendarSchedule.vue";
 export default Vue.extend({
-  layout: "student",
   metaInfo: {
     title: "Home"
   },

@@ -27,9 +27,9 @@
 <script lang="ts">
 import Vue from "vue";
 import { UserStore } from "@/modules/user/user.store";
-import CalendarScheduleVue from "../modules/module/CalendarSchedule.vue";
-import CardCourseVue from "../modules/module/CardCourse.vue";
-import { UserCourse } from "../modules/user/user.interfaces";
+import CalendarScheduleVue from "@/modules/module/CalendarSchedule.vue";
+import CardCourseVue from "@/modules/module/CardCourse.vue";
+import { UserCourse } from "@/modules/user/user.interfaces";
 export default Vue.extend({
   components: {
     CalendarScheduleVue,

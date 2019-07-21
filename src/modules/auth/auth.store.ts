@@ -1,6 +1,10 @@
 import Vuex from "vuex";
 import AppStore from "@/store";
-import { LoginPayload, CurUserInfo } from "@/modules/auth/auth.interfaces";
+import {
+  LoginPayload,
+  CurUserInfo,
+  NavItem
+} from "@/modules/auth/auth.interfaces";
 import { AuthService } from "@/modules/auth/auth.service";
 
 export const AuthMutations = {

@@ -24,6 +24,9 @@ export default Vue.extend({
     return {
       module: undefined as ModuleInfo | undefined
     };
+  },
+  created() {
+    this.$parent.$data.header = "课程信息";
   }
 });
 </script>
