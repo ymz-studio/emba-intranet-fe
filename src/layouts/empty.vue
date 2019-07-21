@@ -1,6 +1,5 @@
 <template>
   <div>
-    学生版布局
     <router-view></router-view>
   </div>
 </template>
