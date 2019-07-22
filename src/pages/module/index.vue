@@ -35,6 +35,9 @@ export default Vue.extend({
     CalendarScheduleVue,
     CardCourseVue
   },
+  metaInfo: {
+    title: "课程信息"
+  },
   computed: {
     // 全部课程
     courses(): UserCourse[] | undefined {

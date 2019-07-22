@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white p-6 shadow">
     {{ src }}
   </div>
 </template>

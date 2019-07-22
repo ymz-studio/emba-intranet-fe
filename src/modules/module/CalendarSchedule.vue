@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="!schedule">
+  <div v-loading="!schedule" class="bg-white shadow">
     <div id="calendar"></div>
   </div>
 </template>
@@ -8,7 +8,7 @@
 import Vue from "vue";
 import { Calendar } from "@fullcalendar/core";
 import daygrid from "@fullcalendar/daygrid";
-import listPlugin from "@fullcalendar/list";
+// import listPlugin from "@fullcalendar/list";
 // @ts-ignore
 // import zhLocale from "@fullcalendar/core/locales/zh-cn";
 import { ModuleStore, ModuleMutations, ModuleActions } from "./module.store";
@@ -45,11 +45,11 @@ export default Vue.extend({
       const calendarEl = document.getElementById("calendar");
       if (calendarEl) {
         const calendar = new Calendar(calendarEl, {
-          plugins: [daygrid, listPlugin],
+          plugins: [daygrid],
           header: {
             left: "title",
             center: "",
-            right: "dayGridMonth,listWeek prev,next"
+            right: "prev,next"
           },
           events: schedule.map(item => ({
             id: item.slug,
@@ -78,6 +78,14 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 #calendar >>> {
+  overflow: hidden;
+
+  .fc-toolbar {
+    @apply p-6 m-0;
+  }
+  .fc-view {
+    margin: 0 -1px;
+  }
   .fc-button-primary {
     @apply bg-primary outline-none border-primary;
     box-shadow: none;
@@ -104,6 +112,9 @@ export default Vue.extend({
   }
   .fc-list-item {
     @apply cursor-pointer;
+  }
+  h2 {
+    font-size: 1.25rem;
   }
 }
 </style>

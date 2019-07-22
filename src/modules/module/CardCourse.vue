@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="bg-white p-6 shadow">
+    <h3 class="mt-0">{{ src.name }}</h3>
     {{ src }}
   </div>
 </template>
