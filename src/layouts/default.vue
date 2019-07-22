@@ -118,6 +118,7 @@ export default Vue.extend({
 }
 
 .main {
+  @apply min-h-screen flex flex-col;
   padding-left: var(--width-sidebar);
   padding-top: var(--height-toolbar);
 }
