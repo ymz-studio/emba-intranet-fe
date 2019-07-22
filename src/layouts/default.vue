@@ -96,16 +96,24 @@ export default Vue.extend({
 <style lang="postcss" scoped>
 .layout {
   --width-sidebar: 14rem;
+  --const-width-sidebar: 14rem;
   --height-toolbar: 4rem;
-  --display-sidebar: initial;
-  --display-trigger: none;
 }
 
 @media screen and (max-width: 1024px) {
   .layout {
     --width-sidebar: 0;
-    --display-sidebar: none;
-    --display-trigger: initial;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+    z-index: 5;
+    &.active {
+      transform: translateX(0);
+    }
+  }
+  .trigger {
+    display: inline !important;
   }
 }
 
@@ -121,14 +129,8 @@ export default Vue.extend({
 }
 .sidebar {
   @apply fixed left-0 top-0 bottom-0 text-white px-6;
-  width: var(--width-sidebar);
+  width: var(--const-width-sidebar);
   background: #252529;
-  display: var(--display-sidebar);
-  &.active {
-    display: initial;
-    width: 14rem;
-    z-index: 5;
-  }
 }
 .sidebar-toolbar {
   @apply overflow-hidden border-0 border-b-2 border-solid border-gray-800;
@@ -156,10 +158,7 @@ a {
   @apply cursor-pointer text-xl pl-6;
   line-height: var(--height-toolbar);
   z-index: 4;
-  display: var(--display-trigger);
-  &.active {
-    @apply text-success;
-  }
+  display: none;
 }
 .mask {
   @apply fixed left-0 top-0 right-0 bottom-0;
