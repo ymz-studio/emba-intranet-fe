@@ -1,8 +1,14 @@
 <template>
-  <div v-if="module">
-    {{ module }}
-    <carousel-img-vue :src="module.imgs"></carousel-img-vue>
-  </div>
+  <layout class="bg-background flex-grow p-0 md:p-6">
+    <div v-if="module">
+      <el-breadcrumb class="mb-4 text-lg">
+        <el-breadcrumb-item to="/module">课程信息</el-breadcrumb-item>
+        <el-breadcrumb-item>{{ module.name }}</el-breadcrumb-item>
+      </el-breadcrumb>
+      {{ module }}
+      <carousel-img-vue :src="module.imgs"></carousel-img-vue>
+    </div>
+  </layout>
 </template>
 
 <script lang="ts">

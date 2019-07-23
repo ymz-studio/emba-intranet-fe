@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-background flex-grow p-0 md:p-6">
+  <layout class="bg-background flex-grow p-0 md:p-6">
+    <span slot="header">
+      Hi
+    </span>
     <el-row :gutter="20">
       <el-col :sm="24" :md="12" :lg="14" :xl="16">
         <template v-if="curModul">
@@ -28,7 +31,7 @@
         <calendar-schedule-vue></calendar-schedule-vue>
       </el-col>
     </el-row>
-  </div>
+  </layout>
 </template>
 
 <script lang="ts">

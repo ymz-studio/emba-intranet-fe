@@ -29,11 +29,9 @@
           <el-icon v-if="trigger" class="el-icon-s-fold"></el-icon>
           <el-icon v-else class="el-icon-s-unfold"></el-icon>
         </span>
-        <span class="header">
-          {{ header }}
-        </span>
+        <slot name="header"></slot>
       </div>
-      <router-view></router-view>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -50,7 +48,8 @@ interface HeaderMap {
 
 const HEADER_MAP: HeaderMap = {
   index: "首页",
-  "module-index": "课程信息"
+  "module-index": "课程信息",
+  "module-slug": "课程详情"
 };
 
 export default Vue.extend({
@@ -127,6 +126,9 @@ export default Vue.extend({
   left: var(--width-sidebar);
   height: var(--height-toolbar);
   z-index: 3;
+  * {
+    line-height: var(--height-toolbar);
+  }
 }
 .sidebar {
   @apply fixed left-0 top-0 bottom-0 text-white px-6;
@@ -165,9 +167,5 @@ a {
   @apply fixed left-0 top-0 right-0 bottom-0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 4;
-}
-.header {
-  @apply pl-6 text-lg font-bold text-gray-700;
-  line-height: var(--height-toolbar);
 }
 </style>

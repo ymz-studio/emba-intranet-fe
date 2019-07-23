@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <layout>
     <div>
       已完成课程:
       <template v-if="completedCourses">
@@ -21,7 +21,7 @@
       </template>
     </div>
     <calendar-schedule-vue></calendar-schedule-vue>
-  </div>
+  </layout>
 </template>
 
 <script lang="ts">

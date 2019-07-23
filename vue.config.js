@@ -16,8 +16,7 @@ module.exports = {
   chainWebpack: config => {
     config.plugin("vue-auto-routing").use(VueAutoRoutingPlugin, [
       {
-        pages: "src/pages",
-        nested: true
+        pages: "src/pages"
       }
     ]);
   },

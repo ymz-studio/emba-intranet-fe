@@ -1,5 +1,8 @@
 <template>
-  <div class="min-h-screen flex flex-col md:justify-center md:bg-background">
+  <layout
+    name="empty"
+    class="min-h-screen flex flex-col md:justify-center md:bg-background"
+  >
     <div class="mx-auto bg-white md:shadow flex rounded overflow-hidden">
       <div class="left">
         <h3 class="mt-0">Hi 请登录</h3>
@@ -10,14 +13,13 @@
         <p class="mt-2">blabla...</p>
       </div>
     </div>
-  </div>
+  </layout>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import FormLoginVue from "@/modules/auth/FormLogin.vue";
 export default Vue.extend({
-  layout: "empty",
   metaInfo: {
     title: "Login"
   },
