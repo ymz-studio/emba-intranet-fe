@@ -7,6 +7,26 @@
           <h3>EMBA Intranet</h3>
         </router-link>
       </div>
+      <template v-if="me">
+        <h4 class="sub-header">
+          INFO
+        </h4>
+        <div class="flex justify-between items-center">
+          <span>
+            {{ me.username }}
+            <tag-role-vue class="ml-2" :role="me.role"></tag-role-vue>
+          </span>
+          <el-dropdown size="small" placement="bottom-start">
+            <i class="el-icon-more cursor-pointer text-white p-2 -mr-2"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+        <div class="mt-2 text-gray-500">
+          {{ me.email }}
+        </div>
+      </template>
       <h4 class="sub-header">
         MENU
       </h4>
@@ -41,18 +61,12 @@ import Vue from "vue";
 import { AuthStore } from "../modules/auth/auth.store";
 import { AuthService } from "../modules/auth/auth.service";
 import { enableBodyScroll, disableBodyScroll } from "body-scroll-lock";
-
-interface HeaderMap {
-  [key: string]: string;
-}
-
-const HEADER_MAP: HeaderMap = {
-  index: "首页",
-  "module-index": "课程信息",
-  "module-slug": "课程详情"
-};
-
+import { CurUserInfo, NavItem } from "../modules/auth/auth.interfaces";
+import TagRoleVue from "../modules/auth/TagRole.vue";
 export default Vue.extend({
+  components: {
+    TagRoleVue
+  },
   metaInfo: {
     titleTemplate: "%s | EMBA Intranet"
   },
@@ -62,16 +76,15 @@ export default Vue.extend({
     };
   },
   computed: {
-    navs() {
-      const me = AuthStore.state.me;
-      if (!me) {
+    me(): CurUserInfo | undefined {
+      return AuthStore.state.me;
+    },
+    navs(): NavItem[] {
+      if (!this.me) {
         return [];
       } else {
-        return AuthService.getNavItems(me);
+        return AuthService.getNavItems(this.me);
       }
-    },
-    header(): string | undefined {
-      return this.$route.name && HEADER_MAP[this.$route.name];
     }
   },
   watch: {
@@ -122,13 +135,10 @@ export default Vue.extend({
   padding-top: var(--height-toolbar);
 }
 .toolbar {
-  @apply fixed top-0 bg-white right-0 border-solid border-2 border-gray-200;
+  @apply fixed top-0 bg-white right-0 border-solid border-2 border-gray-200 flex items-center;
   left: var(--width-sidebar);
   height: var(--height-toolbar);
   z-index: 3;
-  * {
-    line-height: var(--height-toolbar);
-  }
 }
 .sidebar {
   @apply fixed left-0 top-0 bottom-0 text-white px-6;
@@ -167,5 +177,8 @@ a {
   @apply fixed left-0 top-0 right-0 bottom-0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 4;
+}
+.el-icon-more {
+  transform: rotate(90deg);
 }
 </style>
