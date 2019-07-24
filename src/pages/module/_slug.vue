@@ -1,10 +1,12 @@
 <template>
-  <layout class="bg-background flex-grow p-0 md:p-6">
-    <div v-if="module">
-      <el-breadcrumb class="mb-4 text-lg">
+  <layout ref="layout" class="bg-background flex-grow p-0 md:p-6">
+    <template #header>
+      <el-breadcrumb class="ml-4 text-lg inline-block">
         <el-breadcrumb-item to="/module">课程信息</el-breadcrumb-item>
-        <el-breadcrumb-item>{{ module.name }}</el-breadcrumb-item>
+        <el-breadcrumb-item v-if="module">{{ module.name }}</el-breadcrumb-item>
       </el-breadcrumb>
+    </template>
+    <div v-if="module">
       {{ module }}
       <carousel-img-vue :src="module.imgs"></carousel-img-vue>
     </div>
@@ -16,13 +18,10 @@ import Vue from "vue";
 import { ModuleService } from "../../modules/module/module.service";
 import { ModuleInfo } from "../../modules/module/module.interfaces";
 import CarouselImgVue from "../../modules/module/CarouselImg.vue";
+import { DynamicsLayout } from "@/layouts";
+import Nprogress from "nprogress";
+import { MetaInfo } from "vue-meta";
 export default Vue.extend({
-  async beforeRouteEnter(to, from, next) {
-    const module = await ModuleService.getModuleInfo(to.params.slug);
-    next(vm => {
-      vm.$data.module = module;
-    });
-  },
   components: {
     CarouselImgVue
   },
@@ -31,8 +30,16 @@ export default Vue.extend({
       module: undefined as ModuleInfo | undefined
     };
   },
-  created() {
-    this.$parent.$data.header = "课程信息";
+  metaInfo(): MetaInfo {
+    return {
+      title: this.module && this.module.name
+    };
+  },
+  async mounted() {
+    Nprogress.start();
+    this.module = await ModuleService.getModuleInfo(this.$route.params.slug);
+    (this.$refs.layout as DynamicsLayout).renderSlots();
+    Nprogress.done();
   }
 });
 </script>

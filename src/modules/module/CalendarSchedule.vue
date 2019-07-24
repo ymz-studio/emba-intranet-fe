@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="!schedule" class="bg-white shadow">
+  <div class="bg-white shadow">
     <div id="calendar"></div>
   </div>
 </template>

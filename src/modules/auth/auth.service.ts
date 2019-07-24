@@ -52,4 +52,13 @@ export class AuthService {
         return [];
     }
   }
+
+  static getRoleText(role: string) {
+    switch (role) {
+      case "STUDENT":
+        return "学生";
+      default:
+        return role;
+    }
+  }
 }

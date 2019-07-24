@@ -1,8 +1,11 @@
 <template>
   <layout class="bg-background flex-grow p-0 md:p-6">
-    <span slot="header">
-      Hi
-    </span>
+    <template #header>
+      <span class="text-lg ml-4">
+        控制台
+      </span>
+    </template>
+
     <el-row :gutter="20">
       <el-col :sm="24" :md="12" :lg="14" :xl="16">
         <template v-if="curModul">

@@ -9,6 +9,7 @@ export interface LoginPayload {
 export interface CurUserInfo {
   username: string;
   role: "STUDENT" | "FACULTY" | "STAFF" | "ADMIN";
+  email: string;
 }
 
 export interface NavItem {

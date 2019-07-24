@@ -1,5 +1,10 @@
 <template>
   <layout>
+    <template #header>
+      <span class="text-lg ml-4">
+        课程信息
+      </span>
+    </template>
     <div>
       已完成课程:
       <template v-if="completedCourses">
