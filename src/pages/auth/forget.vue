@@ -1,5 +1,5 @@
 <template>
-  <div>Hello</div>
+  <div>Forget Password</div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";

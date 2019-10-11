@@ -1,25 +1,13 @@
-import store from "@/store";
+import { VuexModule, Module, Mutation } from "vuex-module-decorators";
 import { AuthInfo } from "@/modules/auth/auth.interface";
-import { namespace } from "vuex-class";
+import store from "@/store";
 
-export interface AuthStoreState {
-  me: AuthInfo | null; // 当前登录的用户信息
-}
+@Module({ name: "auth", store, dynamic: true })
+export class AuthModule extends VuexModule {
+  me: AuthInfo | null = null;
 
-export namespace AuthStoreMutations {
-  export type SetMe = (authInfo: AuthInfo) => void;
-}
-
-export const AuthModule = store.registerModule<AuthStoreState>("Auth", {
-  namespaced: true,
-  state: {
-    me: null
-  },
-  mutations: {
-    setMe(state, authInfo: AuthInfo) {
-      state.me = authInfo;
-    }
+  @Mutation
+  setMe(payload: AuthInfo) {
+    this.me = payload;
   }
-});
-
-export const AuthStore = namespace("Auth");
+}

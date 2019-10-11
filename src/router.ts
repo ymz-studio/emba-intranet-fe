@@ -9,7 +9,7 @@ const RouterLayout = createRouterLayout(layout => {
   return import("@/layouts/" + layout + ".vue");
 });
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: "/",
@@ -18,3 +18,5 @@ export default new Router({
     }
   ]
 });
+
+export default router;

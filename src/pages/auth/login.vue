@@ -1,6 +1,8 @@
 <template>
   <div>
-    <FormLoginLocal></FormLoginLocal>
+    <div class="form-container">
+      <FormLoginLocal></FormLoginLocal>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -13,6 +15,15 @@ import FormLoginLocal from "@/modules/auth/components/FormLoginLocal.vue";
     FormLoginLocal
   }
 })
-export default class extends Vue {}
+export default class extends Vue {
+  created() {
+    this.$toast("toast init successfully");
+  }
+}
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.form-container {
+  max-width: 900px;
+  padding: 3em;
+}
+</style>

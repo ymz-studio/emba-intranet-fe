@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+import "@/plugins/role";
+
 import Loading from "@/components/Loading.vue";
 
 Vue.config.productionTip = false;
