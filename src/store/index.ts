@@ -3,10 +3,9 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-export const AppStore = new Vuex.Store({
+export default new Vuex.Store({
   state: {},
   mutations: {},
-  actions: {}
+  actions: {},
+  modules: {}
 });
-
-export default AppStore;

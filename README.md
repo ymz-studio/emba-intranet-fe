@@ -1,35 +1,24 @@
 # emba-intranet-fe
 
-[![CircleCI](https://circleci.com/gh/ymz-studio/emba-intranet-fe/tree/dev.svg?style=svg)](https://circleci.com/gh/ymz-studio/emba-intranet-fe/tree/dev)
-
-> CI TEST
-
 ## Project setup
-
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
-
 ```
-yarn run serve
+npm run serve
 ```
 
 ### Compiles and minifies for production
-
 ```
-yarn run build
+npm run build
 ```
 
 ### Lints and fixes files
+```
+npm run lint
+```
 
-```
-yarn run lint
-```
-
-### Commit changes
-
-```
-yarn commit
-```
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
