@@ -1,4 +1,10 @@
 module.exports = {
   lintOnSave: false,
-  transpileDependencies: ["vuetify"]
+  transpileDependencies: ["vuetify"],
+
+  pluginOptions: {
+    autoRouting: {
+      chunkNamePrefix: "page-"
+    }
+  }
 };
