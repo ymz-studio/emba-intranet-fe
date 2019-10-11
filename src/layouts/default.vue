@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <router-view />
-    <p>This is a default layout</p>
-  </div>
+  <v-app>
+    <v-content>
+      <router-view />
+    </v-content>
+  </v-app>
 </template>

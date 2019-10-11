@@ -1,11 +1,9 @@
 <template>
-  <div>
-    Hello
-  </div>
+  <div></div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 @Component
-export default class extends Vue {}
+export default class FormLoginLocal extends Vue {}
 </script>
 <style lang="scss" scoped></style>
