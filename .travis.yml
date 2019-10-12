@@ -17,7 +17,7 @@ install:
 
 script:
   - npm run build
-  - aws --endpoint-url https://minio.ymzstudio.com s3 sync dist s3://${TRAVIS_REPO_SLUG}/${$TRAVIS_BRANCH} --delete
+  - aws --endpoint-url https://minio.ymzstudio.com s3 sync dist s3://$TRAVIS_REPO_SLUG/$TRAVIS_BRANCH --delete
 
 branches:
   only:
