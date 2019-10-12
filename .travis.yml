@@ -1,30 +1,32 @@
-language: node_js
+language: python
 
-node_js:
-  - "12.6.0"
+python:
+  - "3.6"
 
 cache:
   directories:
     - node_modules
+
+before_install:
+  - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
+  - source ~/.nvm/nvm.sh
+  - nvm install 12.6.0 # for Node v5
+  - node --version
+  - pip install awscli # install awscli
+  - aws configure set default.s3.signature_version s3v4 configure
 
 install:
   - npm install
 
 script:
   - npm run build
+  - aws --endpoint-url https://minio.ymzstudio.com s3 sync dist s3://${TRAVIS_REPO_SLUG}/${$TRAVIS_BRANCH} --delete
 
-deploy:
-  provider: s3
-  access_key_id: $MINIO_ACCESS_KEY
-  secret_access_key: $MINIO_ACCESS_SECRET
-  bucket: pages
-  local_dir: dist
-  skip_cleanup: true
-  acl: public_read
-  endpoint: https://minio.ymzstudio.com
-  on:
-    all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^(master|release|dev)$
+branches:
+  only:
+    - master
+    - release
+    - dev
 
 notifications:
   webhooks:
