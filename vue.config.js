@@ -8,6 +8,7 @@ module.exports = {
     }
   },
   devServer: {
+    https: true,
     proxy: "https://yapi.ymzstudio.com/mock/11"
   },
   publicPath: "./"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :style="styles" class="spinner spinner--google"></div>
+    <div class="spinner spinner--google"></div>
   </div>
 </template>
 <script>

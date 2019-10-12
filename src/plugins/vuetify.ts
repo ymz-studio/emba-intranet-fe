@@ -15,7 +15,14 @@ Vue.use(Vuetify, {
     Intersect
   }
 });
-Vue.use(VuetifyToast);
+Vue.use(VuetifyToast, {
+  icon: "mdi-information-outline",
+  shorts: {
+    error: {
+      color: "error"
+    }
+  }
+});
 
 export default new Vuetify({
   lang: {

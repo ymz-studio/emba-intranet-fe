@@ -15,11 +15,7 @@ import FormLoginLocal from "@/modules/auth/components/FormLoginLocal.vue";
     FormLoginLocal
   }
 })
-export default class extends Vue {
-  created() {
-    this.$toast("toast init successfully");
-  }
-}
+export default class extends Vue {}
 </script>
 <style lang="scss" scoped>
 .form-container {
