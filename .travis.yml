@@ -12,7 +12,7 @@ before_install:
   - source ~/.nvm/nvm.sh
   - nvm install 12.6.0 # for Node v5
   - node --version
-  - pip install awscli # install awscli
+  - sudo pip install awscli # install awscli
   - aws configure set default.s3.signature_version s3v4 configure
 
 install:
