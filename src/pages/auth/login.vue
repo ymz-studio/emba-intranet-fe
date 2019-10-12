@@ -10,7 +10,6 @@ import { Vue, Component } from "vue-property-decorator";
 import FormLoginLocal from "@/modules/auth/components/FormLoginLocal.vue";
 
 @Component({
-  layout: "empty",
   components: {
     FormLoginLocal
   }
