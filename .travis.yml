@@ -8,12 +8,9 @@ cache:
     - node_modules
 
 before_install:
-  - wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
-  - source ~/.nvm/nvm.sh
-  - nvm install 12.6.0 # for Node v5
+  - nvm install 12.6.0
   - node --version
   - sudo pip install awscli # install awscli
-  - aws configure set default.s3.signature_version s3v4 configure
 
 install:
   - npm install
