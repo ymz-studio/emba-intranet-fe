@@ -18,15 +18,13 @@ deploy:
   access_key_id: $MINIO_ACCESS_KEY
   secret_access_key: $MINIO_ACCESS_SECRET
   bucket: $TRAVIS_REPO_SLUG/$TRAVIS_BRANCH
-  local_dir: public
+  local_dir: dist
+  skip_cleanup: true
   acl: public_read
   endpoint: https://minio.ymzstudio.com
-
-branches:
-  only:
-    - dev
-    - master
-    - release
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(master|release|dev)$
 
 notifications:
   webhooks:
