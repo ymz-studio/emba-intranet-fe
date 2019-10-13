@@ -31,7 +31,7 @@ import { AuthService } from "../auth.service";
 import { AxiosResponse } from "axios";
 import { getModule } from "vuex-module-decorators";
 import { AuthModule } from "../auth.module";
-import { loginNextRouteName } from "@/config";
+import { loginNextRoutePath } from "@/config";
 @Component
 export default class FormLoginLocal extends Vue {
   form = {
@@ -54,9 +54,7 @@ export default class FormLoginLocal extends Vue {
       await AuthService.login(this.form);
       const authInfo = await AuthService.getAuthInfo();
       this.authModule.setMe(authInfo);
-      this.$router.push({
-        name: this.next || loginNextRouteName[authInfo.role]
-      });
+      this.$router.replace(this.next || loginNextRoutePath[authInfo.role]);
     } catch (error) {
       const res: AxiosResponse = error.response;
       if (res.status === 401) {

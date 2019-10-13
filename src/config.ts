@@ -4,8 +4,8 @@ export const routeRoles: { [key: string]: string[] } = {
   dashboard: ["STAFF"]
 };
 
-export const loginNextRouteName: { [key: string]: string } = {
-  STUDENT: "index",
-  ADMIN: "admin",
-  STAFF: "dashboard"
+export const loginNextRoutePath: { [key: string]: string } = {
+  STUDENT: "/",
+  ADMIN: "/admin",
+  STAFF: "/dashboard"
 };
