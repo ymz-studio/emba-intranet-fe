@@ -8,7 +8,14 @@
         <DropdownAuthInfo></DropdownAuthInfo>
       </v-toolbar-items>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" dark color="primary" app clipped>
+    <v-navigation-drawer
+      width="200"
+      v-model="drawer"
+      dark
+      color="primary"
+      app
+      clipped
+    >
       <v-list>
         <v-list-item-group active-class="active-menu-item">
           <v-list-item
