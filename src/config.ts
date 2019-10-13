@@ -1,5 +1,6 @@
 export const routeRoles: { [key: string]: string[] } = {
   index: ["STUDENT"],
+  course: ["STUDENT"],
   admin: ["ADMIN"],
   dashboard: ["STAFF"]
 };

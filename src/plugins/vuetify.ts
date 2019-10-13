@@ -38,7 +38,10 @@ export default new Vuetify({
     },
     themes: {
       light: {
-        primary: "#0060df"
+        primary: "#2e60a0"
+      },
+      dark: {
+        primary: "#c19c4b"
       }
     }
   }
