@@ -1,34 +1,28 @@
 <template>
-  <div id="app">
-    <router-view />
+  <div>
+    <loading v-if="globalLoading" class="global-loading"></loading>
+    <router-view></router-view>
   </div>
 </template>
-
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({});
+import { Vue, Component } from "vue-property-decorator";
+@Component
+export default class App extends Vue {
+  get globalLoading() {
+    return this.$store.state.loading;
+  }
+}
 </script>
-
-<style lang="postcss">
-/* purgecss start ignore */
-@tailwind base;
-/* purgecss end ignore */
-@tailwind components;
-@tailwind utilities;
-
-#app {
-  @apply text-gray-900 antialiased subpixel-antialiased font-sans;
-}
-
-h1 {
-  @apply text-4xl;
-}
-
-h2 {
-  @apply text-2xl;
-}
-
-h3 {
-  @apply text-xl;
+<style lang="scss" scoped>
+.global-loading {
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 </style>

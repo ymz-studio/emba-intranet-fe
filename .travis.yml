@@ -1,0 +1,30 @@
+language: node_js
+
+node_js:
+  - "12.6.0"
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - sudo pip install awscli # install awscli
+
+install:
+  - npm install
+
+script:
+  - npm run build
+  - aws --endpoint-url https://minio.ymzstudio.com s3 sync dist s3://$TRAVIS_REPO_SLUG/$TRAVIS_BRANCH --delete
+
+branches:
+  only:
+    - master
+    - release
+    - dev
+
+notifications:
+  webhooks:
+    urls:
+      - https://open.feishu.cn/officialapp/notify/3058121f3ea9982acefd3382a1ce3934232ccb50b8a239f9d9b2c543934fabad
+    on_start: always # default: never

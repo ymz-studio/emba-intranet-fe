@@ -1,5 +1,3 @@
-import Axios from "axios";
+import axios from "axios";
 
-export const AxiosDefault = Axios.create({
-  // config
-});
+export const Axios = axios.create();
