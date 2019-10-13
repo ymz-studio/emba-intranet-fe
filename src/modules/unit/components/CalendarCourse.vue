@@ -119,7 +119,7 @@ export default class CalendarCourse extends Vue {
 }
 .calendar-container ::v-deep {
   .v-calendar-weekly__head-weekday {
-    border: none;
+    border: none !important;
     // border-bottom: 1px solid #efefef;
     line-height: 3;
     font-size: 0.8rem;
