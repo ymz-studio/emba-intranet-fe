@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="#fff" elevate-on-scroll clipped-left class="app-bar">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>EMBA Intranet</v-toolbar-title>
+      <img src="@/assets/logo.png" class="logo" />
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <DropdownAuthInfo></DropdownAuthInfo>
@@ -65,5 +65,10 @@ export default class extends Vue {
 .active-menu-item {
   background: #c38707;
   font-weight: bold;
+}
+
+.logo {
+  max-height: 90%;
+  margin-left: 20px;
 }
 </style>

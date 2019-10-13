@@ -9,6 +9,9 @@ export interface UnitItem {
 export interface CourseItem {
   name: string;
   range: string[];
+  description: string;
+  id: number;
+  slug?: string;
 }
 
 export interface ActivityItem {
