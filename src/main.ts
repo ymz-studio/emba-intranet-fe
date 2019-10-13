@@ -6,11 +6,12 @@ import vuetify from "./plugins/vuetify";
 import "@/plugins/role";
 
 import Loading from "@/components/Loading.vue";
+import CardWithToolbar from "@/components/CardWithToolbar.vue";
 
 Vue.config.productionTip = false;
 
 Vue.component("Loading", Loading);
-
+Vue.component("CardWithToolbar", CardWithToolbar);
 new Vue({
   router,
   store,
